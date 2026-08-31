@@ -25,19 +25,27 @@ export default function CbtHubPage() {
     );
   }
 
-  return (
+     return (
     <div className="container-page py-16">
-           <Eyebrow>CBT practice</Eyebrow>
-      <h1 className="max-w-2xl font-display text-4xl">
-        Pick a subject and sit a timed, graded practice session.
-      </h1>
-      <p className="mt-2 text-sm text-ink-700">
-        {access.attemptsRemaining} attempt{access.attemptsRemaining === 1 ? "" : "s"} remaining.
-      </p>
+          {!isError && (
+        <>
+          <Eyebrow>CBT practice</Eyebrow>
+          <h1 className="max-w-2xl font-display text-4xl">CBT Practice Centre</h1>
+          <p className="mt-3 max-w-xl text-sm text-ink-700">
+            Prepare for examinations through computer-based practice designed to help
+            students become more familiar with CBT examination environments.
+          </p>
+          <p className="mt-2 text-sm text-ink-700">
+            {access.attemptsRemaining} attempt{access.attemptsRemaining === 1 ? "" : "s"} remaining.
+          </p>
+        </>
+      )}
 
-      {isLoading && <p className="mt-10 text-sm text-ink-700">Loading subjects&hellip;</p>}
-      {isError && <p className="mt-10 text-sm text-oxblood-600">Couldn&apos;t load subjects.</p>}
-
+{isError && (
+  <p className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-sm font-bold text-red-400">
+    Couldn&apos;t load subjects. Ensure you have a good internet connection
+  </p>
+)}
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {subjects?.map((subject, i) => (
           <RevealOnScroll key={subject.id} delay={i * 0.05}>

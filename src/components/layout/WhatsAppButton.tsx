@@ -1,20 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useSettings } from "@/hooks/useSettings";
+
+const WHATSAPP_NUMBER = "2347066718671";
 
 export function WhatsAppButton() {
-  const { data: settings } = useSettings();
-  if (!settings?.whatsappNumber) return null;
-
-  const digits = settings.whatsappNumber.replace(/[^0-9]/g, "");
-
   return (
     <motion.a
-      href={`https://wa.me/${digits}`}
+      href={`https://wa.me/${WHATSAPP_NUMBER}`}
       target="_blank"
       rel="noreferrer"
-      className="fixed bottom-6 right-6 z-20 flex h-14 w-14 items-center justify-center rounded-full bg-sage-500 text-paper-50 shadow-lg"
+      className="fixed bottom-6 right-6 z-20 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-paper-50 shadow-lg"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 0.6, type: "spring", stiffness: 260, damping: 18 }}

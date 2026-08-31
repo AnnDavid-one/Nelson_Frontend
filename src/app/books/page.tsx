@@ -1,3 +1,4 @@
+// src/app/books/page.tsx
 "use client";
 
 import { useMemo, useState } from "react";
@@ -32,10 +33,12 @@ export default function BooksPage() {
     <div className="relative container-page py-16">
       <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <Eyebrow>The bookstore</Eyebrow>
-          <h1 className="font-display text-4xl">
-            Every title, in print or as an ebook
-          </h1>
+          <Eyebrow>Online bookstore</Eyebrow>
+          <h1 className="font-display text-4xl">Nelson O. Bello Bookstore</h1>
+          <p className="mt-3 max-w-xl text-sm text-ink-700">
+            Discover books created to educate, inspire, challenge perspectives, strengthen
+            faith, develop students and encourage purposeful living.
+          </p>
         </div>
         <div className="flex gap-2 text-xs uppercase tracking-wide">
           {(["ALL", "EBOOK", "PHYSICAL"] as const).map((f) => (
@@ -58,6 +61,9 @@ export default function BooksPage() {
         <p className="text-sm text-oxblood-600">
           Couldn&apos;t load the bookstore. Please refresh.
         </p>
+      )}
+            {books && filtered.length === 0 && !isError && (
+        <p className="text-sm text-ink-700">No titles match this filter.</p>
       )}
       {books && <BookGrid books={filtered} />}
     </div>

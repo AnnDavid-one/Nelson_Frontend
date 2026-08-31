@@ -2,17 +2,18 @@
 
 import Link from "next/link";
 import { navLinks } from "./navLinks";
-import { useSettings } from "@/hooks/useSettings";
+
+const SOCIALS: { label: string; href: string | null }[] = [
+  { label: "Facebook", href: null },
+  { label: "Instagram", href: null },
+  { label: "Twitter / X", href: null },
+  { label: "YouTube", href: null },
+];
+
+const HARDCODE_URL: string | null = null; // e.g. your portfolio or GitHub link
 
 export function Footer() {
-  const { data: settings } = useSettings();
-
-  const socials = [
-    { label: "Facebook", href: settings?.facebookUrl },
-    { label: "Instagram", href: settings?.instagramUrl },
-    { label: "Twitter / X", href: settings?.twitterUrl },
-    { label: "YouTube", href: settings?.youtubeUrl },
-  ].filter((s) => s.href);
+  const socials = SOCIALS.filter((s): s is { label: string; href: string } => !!s.href);
 
   return (
     <footer className="mt-24 bg-ink-900 text-paper-100">
@@ -43,7 +44,7 @@ export function Footer() {
               {socials.length === 0 && <li className="text-paper-200/50">Coming soon</li>}
               {socials.map((s) => (
                 <li key={s.label}>
-                  <a href={s.href!} target="_blank" rel="noreferrer" className="hover:text-brass-400">
+                  <a href={s.href} target="_blank" rel="noreferrer" className="hover:text-brass-400">
                     {s.label}
                   </a>
                 </li>
@@ -52,10 +53,27 @@ export function Footer() {
           </div>
         </div>
         <div className="brass-rule mt-10" />
-        <p className="mt-6 text-xs text-paper-200/60">
-          Printed &amp; published on the web by NELBELL &middot; &copy; {new Date().getFullYear()}{" "}
-          Nelson O. Bello. All rights reserved.
-        </p>
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-2 text-xs text-paper-200/60">
+          <p>
+            Printed &amp; published on the web by NELBELL &middot; &copy; {new Date().getFullYear()}{" "}
+            Nelson O. Bello. All rights reserved.
+          </p>
+          <p>
+            Built by{" "}
+            {HARDCODE_URL ? (
+              
+               <a href={HARDCODE_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="text-brass-400 hover:underline"
+              >
+                Hardcode
+              </a>
+            ) : (
+              <span className="text-paper-200/70">Hardcode</span>
+            )}
+          </p>
+        </div>
       </div>
     </footer>
   );
