@@ -1,11 +1,12 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useVerifyOrderPayment } from "@/hooks/useVerifyOrderPayment";
 import { Loader } from "lucide-react";
 import Link from "next/link";
 
-export default function OrderConfirmationPage() {
+function OrderConfirmationContent() {
   const searchParams = useSearchParams();
   const reference = searchParams.get("reference");
 
@@ -50,5 +51,20 @@ export default function OrderConfirmationPage() {
         Continue browsing
       </Link>
     </div>
+  );
+}
+
+export default function OrderConfirmationPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+          <Loader className="mx-auto h-12 w-12 animate-spin text-brass-500" />
+          <p className="mt-4 text-sm text-ink-700">Confirming your payment&hellip;</p>
+        </div>
+      }
+    >
+      <OrderConfirmationContent />
+    </Suspense>
   );
 }
