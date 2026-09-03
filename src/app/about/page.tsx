@@ -62,7 +62,7 @@ export default function AboutPage() {
               proud of, and honest enough to sit with a reader wrestling with faith and calling.
             </p>
             <p>
-              Today, NELBELL brings all of that together — books to read, a centre to study
+              Today, NELBELL brings all of that together books to read, a centre to study
               in, a test engine to practice with, and a coach to talk to.
             </p>
           </div>

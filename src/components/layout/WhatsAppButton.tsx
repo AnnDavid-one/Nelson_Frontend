@@ -1,8 +1,9 @@
 "use client";
 
+import { WHATSAPP_NUMBER } from "@/lib/constant";
 import { motion } from "framer-motion";
 
-const WHATSAPP_NUMBER = "2347066888671";
+
 
 export function WhatsAppButton() {
   return (

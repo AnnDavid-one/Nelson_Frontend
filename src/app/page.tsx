@@ -8,13 +8,13 @@ import { BookGrid } from "@/components/books/BookGrid";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
-import { KingdomInfluence, KingdomInfluence1, KingdomInfluence2 } from "@/assets/images";
+import { KingdomInfluence, KingdomInfluence1, KingdomInfluence2, Nelson } from "@/assets/images";
 import Image from "next/image";
 
 const PILLARS = [
   {
     title: "The Bookstore",
-    copy: "Ebooks and print editions on faith, growth, and clear thinking — delivered or shipped.",
+    copy: "Ebooks and print editions on faith, growth, and clear thinking delivered or shipped.",
     href: "/books",
   },
   {
@@ -45,7 +45,7 @@ const casero: CaseroTypes[] = [
   { id: 3, photopath: KingdomInfluence2, title: "NELBELL" },
 ];
 
-// Section 6 — "My Areas of Impact" (blueprint)
+// Section 6 "My Areas of Impact" (blueprint)
 const IMPACT_AREAS = [
   {
     tag: "Author",
@@ -79,14 +79,15 @@ const IMPACT_AREAS = [
   },
 ];
 
-// Sections 10–15 — org/programme teasers, in blueprint homepage order
+// Sections 10–15 org/programme teasers, in blueprint homepage order
 const PROGRAMMES = [
   {
     eyebrow: "Oshomhoekha Creative Publishing",
     heading: "Turning manuscripts into masterpieces.",
-    copy: "From editing and cover design to ISBN registration and eBook publishing — help for authors taking a manuscript to print.",
+    copy: "From editing and cover design to ISBN registration and eBook publishing help for authors taking a manuscript to print.",
     cta: "Start your publishing journey",
     href: "/publishing",
+    image: "/masterpiece.jpg",
   },
   {
     eyebrow: "NELBELL Tutorial Centre Online",
@@ -94,13 +95,15 @@ const PROGRAMMES = [
     copy: "Exam-focused prep for WAEC, NECO, JAMB, Post-UTME, BECE and Common Entrance, plus core-subject support.",
     cta: "Explore our programmes",
     href: "/tutorial-centre",
+    image: "/roadtosuccess.jpg",
   },
   {
     eyebrow: "CBT Practice Centre",
     heading: "Practice the way you'll be tested.",
-    copy: "Subject and exam-type selection, timed sessions, and results — built to feel like the real CBT environment.",
+    copy: "Subject and exam-type selection, timed sessions, and results built to feel like the real CBT environment.",
     cta: "Start CBT practice",
     href: "/cbt",
+    image: "/practicebest.jpg",
   },
   {
     eyebrow: "Coaching & Consulting",
@@ -108,10 +111,11 @@ const PROGRAMMES = [
     copy: "Guidance across student success, educational planning, publishing, personal development, and leadership.",
     cta: "Enquire about coaching",
     href: "/coaching",
+    image: "/clarity.jpg",
   },
 ];
 
-// Section 18 — placeholder until the owner supplies real testimonials (per blueprint §18/§31B)
+// Section 18 placeholder until the owner supplies real testimonials (per blueprint §18/§31B)
 const TESTIMONIALS: { name: string; role: string; quote: string }[] = [];
 
 export default function HomePage() {
@@ -119,7 +123,7 @@ export default function HomePage() {
 
   return (
     <div>
-      {/* HERO — the open-book spread */}
+      {/* HERO the open-book spread */}
       <section className="container-page grid gap-10 pb-16 pt-14 lg:grid-cols-[1.1fr,0.9fr] lg:gap-16 lg:pb-24 lg:pt-24">
         <div>
           <Eyebrow>Oshomhoekha Creative Publishing</Eyebrow>
@@ -173,23 +177,31 @@ export default function HomePage() {
 
       <div className="brass-rule container-page" />
 
-      {/* WELCOME / WHO I AM — blueprint §5 */}
+      {/* WELCOME / WHO I AM blueprint §5 */}
       <section className="container-page py-16">
         <div className="grid gap-10 lg:grid-cols-[0.9fr,1.1fr] lg:items-center">
-          <RevealOnScroll>
-            {/* TODO: swap for a real portrait once client supplies one (blueprint §31A) */}
-            <div className="aspect-[4/5] w-full max-w-sm border border-ink-900/10 bg-ink-900/5" />
+      <RevealOnScroll>
+            <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden border border-ink-900/10">
+              <Image
+                src={Nelson}
+                alt="Nelson O. Bello"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 384px"
+              />
+            </div>
           </RevealOnScroll>
+
           <RevealOnScroll delay={0.1}>
             <Eyebrow>Welcome to my world</Eyebrow>
             <h2 className="font-display text-3xl leading-tight">
-              I am Nelson O. Bello — author, publisher, educator, pastor and student success coach.
+              I am Nelson O. Bello author, publisher, educator, pastor and student success coach.
             </h2>
             <p className="mt-4 max-w-xl text-ink-700">
               My work sits at the intersection of education, publishing, leadership, personal
               development and faith. Through my books, educational platforms, publishing services,
-              coaching initiatives and Kingdom-focused resources, I seek to equip individuals —
-              especially students, young people and emerging leaders — with knowledge, wisdom and
+              coaching initiatives and Kingdom-focused resources, I seek to equip individuals
+              especially students, young people and emerging leaders with knowledge, wisdom and
               practical tools for meaningful growth.
             </p>
             <div className="mt-6">
@@ -201,7 +213,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* AREAS OF IMPACT — blueprint §6 */}
+      {/* AREAS OF IMPACT blueprint §6 */}
       <section className="container-page py-16">
         <RevealOnScroll>
           <Eyebrow>My areas of impact</Eyebrow>
@@ -251,7 +263,7 @@ export default function HomePage() {
 
       <div className="brass-rule container-page" />
 
-      {/* PROGRAMME TEASERS — blueprint §10–14 homepage order */}
+      {/* PROGRAMME TEASERS blueprint §10–14 homepage order */}
       {PROGRAMMES.map((prog, i) => (
         <section
           key={prog.eyebrow}
@@ -267,12 +279,20 @@ export default function HomePage() {
               </div>
             </RevealOnScroll>
             {/* TODO: dedicated imagery per programme once supplied (blueprint §25) */}
-            <div className={`aspect-video w-full border border-ink-900/10 bg-ink-900/5 ${i % 2 === 1 ? "lg:order-1" : ""}`} />
+ <div className={`relative aspect-video w-full overflow-hidden border border-ink-900/10 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+              <Image
+                src={prog.image}
+                alt={prog.eyebrow}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
           </div>
         </section>
       ))}
 
-            {/* KINGDOM INFLUENCE — blueprint §15 */}
+            {/* KINGDOM INFLUENCE blueprint §15 */}
       <section className="container-page py-16">
         <div className="grid gap-8 lg:grid-cols-[1fr,1fr] lg:items-center">
           <RevealOnScroll>
@@ -287,7 +307,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-4 max-w-md text-ink-700">
               A faith-based resource on daily wisdom, biblical principles, purpose, leadership and
-              personal transformation — for living intentionally and leading responsibly.
+              personal transformation for living intentionally and leading responsibly.
             </p>
             <div className="mt-6 flex flex-wrap gap-4">
               <Button href="/kingdom-influence">Read today&apos;s devotional</Button>
@@ -299,7 +319,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* TESTIMONIALS — blueprint §18 (only real, owner-supplied testimonials get published) */}
+      {/* TESTIMONIALS blueprint §18 (only real, owner-supplied testimonials get published) */}
       <section className="container-page py-16">
         <RevealOnScroll>
           <Eyebrow>What people are saying</Eyebrow>
@@ -322,7 +342,7 @@ export default function HomePage() {
         )}
       </section>
 
-      {/* SPEAKING CTA — blueprint §17 */}
+      {/* SPEAKING CTA blueprint §17 */}
       <section className="container-page py-16">
         <RevealOnScroll>
           <div className="border border-ink-900/10 bg-paper-100 p-10 text-center">
@@ -339,7 +359,7 @@ export default function HomePage() {
         </RevealOnScroll>
       </section>
 
-      {/* FINAL CONTACT CTA — blueprint §33 */}
+      {/* FINAL CONTACT CTA blueprint §33 */}
       <section className="container-page pb-24 pt-4">
         <RevealOnScroll>
           <div className="border border-ink-900/10 p-10 text-center sm:p-16">
@@ -347,7 +367,7 @@ export default function HomePage() {
             <p className="mx-auto mt-4 max-w-xl text-ink-700">
               Whether you&apos;re looking for a book, seeking educational support, preparing for an
               examination, exploring publishing, looking for coaching, or seeking resources for
-              purposeful living — there&apos;s something here for you.
+              purposeful living there&apos;s something here for you.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Button href="/books">Explore books</Button>

@@ -39,8 +39,8 @@ export default function CoachingPage() {
           </h1>
           <div className="mt-6 space-y-4 text-ink-800">
             <p>
-              Nelson works one-on-one with people building something that matters to them — a
-              book, a ministry, a body of work — and needs a steady, honest sounding board.
+              Nelson works one-on-one with people building something that matters to them a
+              book, a ministry, a body of work and needs a steady, honest sounding board.
             </p>
             <p>
               Sessions are tailored to where you are: early direction-setting, mid-project

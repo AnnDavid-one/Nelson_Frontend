@@ -27,7 +27,7 @@ export default function PublishingServicesPage() {
       </h1>
       <p className="mt-4 max-w-2xl text-ink-700">
         Oshomhoekha Creative Publishing Limited helps authors transform ideas and manuscripts
-        into professionally prepared books — from manuscript preparation to publication.
+        into professionally prepared books from manuscript preparation to publication.
       </p>
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

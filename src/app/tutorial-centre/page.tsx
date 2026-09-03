@@ -12,7 +12,7 @@ const TRACKS = [
 ];
 
 // blueprint §11 — examination preparation
-const EXAMS = ["WAEC", "NECO", "JAMB", "Post-UTME", "BECE", "Common Entrance"];
+const EXAMS = ["WAEC", "NECO", "JAMB", "Post-UTME", "BECE", "Common Entrance", "GCE"];
 
 // blueprint §11 — subject areas
 const SUBJECTS = ["Mathematics", "Physics", "Chemistry"];
@@ -35,7 +35,7 @@ export default function TutorialCentrePage() {
         Structured, exam-focused tutoring built by someone who has taught the syllabus for years.
       </h1>
       <p className="mt-4 max-w-2xl text-ink-700">
-        Your path to academic excellence — structured learning, educational resources,
+        Your path to academic excellence structured learning, educational resources,
         examination preparation and student success support.
       </p>
 

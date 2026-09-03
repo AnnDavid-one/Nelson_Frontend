@@ -7,7 +7,7 @@ export const metadata = { title: "Kingdom Influence | NELBELL" };
 const REFLECTIONS = [
   {
     title: "Faith that shows up in the work",
-    copy: "Nelson writes from the conviction that calling isn't separate from craft — it shows up in how a book is written, a class is taught, and a life is lived.",
+    copy: "Nelson writes from the conviction that calling isn't separate from craft it shows up in how a book is written, a class is taught, and a life is lived.",
   },
   {
     title: "Influence over image",
@@ -15,7 +15,7 @@ const REFLECTIONS = [
   },
   {
     title: "A running collection",
-    copy: "This page holds reflections, writings, and teachings from Nelson's faith-based work — updated as new pieces are ready to share.",
+    copy: "This page holds reflections, writings, and teachings from Nelson's faith-based work updated as new pieces are ready to share.",
   },
 ];
 
@@ -24,7 +24,7 @@ const FOCUS_AREAS = [
   { title: "Daily wisdom", copy: "Short reflections meant to be carried into the rest of the day." },
   { title: "Biblical principles", copy: "Scripture-rooted teaching applied to everyday decisions and character." },
   { title: "Purpose & calling", copy: "Working out what you're here to do, and doing it with conviction." },
-  { title: "Leadership", copy: "Leading responsibly — at home, at work, in ministry, and in community." },
+  { title: "Leadership", copy: "Leading responsibly at home, at work, in ministry, and in community." },
   { title: "Personal transformation", copy: "The slow, honest work of becoming who you're meant to be." },
 ];
 

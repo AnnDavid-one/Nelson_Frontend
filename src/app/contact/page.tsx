@@ -3,9 +3,8 @@
 import { useState } from "react";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
+import { WHATSAPP_NUMBER, CONTACT_EMAIL } from "@/lib/constant";
 
-const CONTACT_EMAIL = "duchenna59@gmail.com";
-const WHATSAPP_NUMBER = "2347066718671";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
@@ -41,7 +40,7 @@ export default function ContactPage() {
           <Eyebrow>Connect with me</Eyebrow>
           <h1 className="font-display text-4xl">Let&apos;s talk.</h1>
           <p className="mt-4 max-w-md text-ink-700">
-            Questions about a book, a booking, or anything else — send a message and NELBELL
+            Questions about a book, a booking, or anything else send a message and NELBELL
             will get back to you.
           </p>
 

@@ -7,7 +7,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 
 const STATUS_COPY: Record<string, string> = {
   PENDING_PAYMENT: "Waiting for your payment to be confirmed.",
-  PAID: "Payment confirmed — we're preparing your order.",
+  PAID: "Payment confirmed we're preparing your order.",
   FULFILLED: "Your order is fulfilled. Download links (if any) are below.",
   CANCELLED: "This order was cancelled.",
 };

@@ -80,7 +80,7 @@ export function QuizRunner({
         <p className="mt-2 text-sm text-ink-700">
           {attemptsRemaining > 0
             ? `${attemptsRemaining} attempt${attemptsRemaining === 1 ? "" : "s"} remaining.`
-            : "No attempts remaining — you'll need to pay again to keep practicing."}
+            : "No attempts remaining you'll need to pay again to keep practicing."}
         </p>
                <Link href="/cbt" className="mt-2 inline-block text-xs uppercase tracking-widest text-brass-600 underline">
           Back to subjects
