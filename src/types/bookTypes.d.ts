@@ -10,6 +10,7 @@ export interface Book {
   format: BookFormat;
   priceKobo: number;
   coverImageUrl: string | null;
+  subtitle: string | null;
   // Present on the /books list response; stripped by the backend on the
   // /books/:slug detail route, so always optional on the client.
   ebookFileUrl?: string;

@@ -137,6 +137,11 @@ export function QuizRunner({
             transition={{ duration: 0.25 }}
           >
             <h2 className="font-display text-xl leading-snug">{current.questionText}</h2>
+            {current.ImageUrl && (
+              <div className="mt-4">
+                <img src={current.ImageUrl} alt="" className="mx-auto max-h-64 object-contain" />
+              </div>
+            )}
             <div className="mt-6 space-y-3">
               {OPTION_KEYS.map((key) => {
                 const label = current[`option${key}` as keyof typeof current] as string;

@@ -132,7 +132,7 @@ export default function CheckoutPage() {
               Payment method
             </span>
             <div className="grid grid-cols-2 gap-3">
-              {(["PAYSTACK", "BANK_TRANSFER"] as const).map((m) => (
+              {(["PAYSTACK"] as const).map((m) => (
                 <button
                   type="button"
                   key={m}

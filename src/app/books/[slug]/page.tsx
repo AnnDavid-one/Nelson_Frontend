@@ -8,11 +8,22 @@ import { formatNaira } from "@/lib/format";
 import { useCartStore } from "@/store/cartStore";
 import { Button } from "@/components/ui/Button";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { useRouter } from "next/navigation";
 
 export default function BookDetailPage() {
   const params = useParams<{ slug: string }>();
   const { data: book, isLoading, isError } = useBook(params.slug);
   const addItem = useCartStore((s) => s.addItem);
+
+const clear = useCartStore((s) => s.clear);
+const router = useRouter();
+
+
+const handleBuyNow = () => {
+  clear();
+  addItem(book!, 1);
+  router.push("/checkout");
+};
 
   if (isLoading) {
     return <p className="container-page py-24 text-center text-sm text-ink-700">Loading&hellip;</p>;
@@ -45,6 +56,7 @@ export default function BookDetailPage() {
             {book.format === "EBOOK" ? "eBook" : "Print edition"}
           </p>
           <h1 className="mt-2 font-display text-4xl">{book.title}</h1>
+          <h1 className="mt-2 text-pink-900 text-2xl">{book.subtitle}</h1>
           <p className="mt-1 text-ink-700">by {book.author}</p>
           <p className="mt-6 whitespace-pre-line text-ink-800">{book.description}</p>
 
@@ -58,12 +70,19 @@ export default function BookDetailPage() {
           </div>
 
           <div className="mt-6">
-            <Button
+            {/* for future scalling */}
+            {/* <Button
               onClick={() => addItem(book, 1)}
               disabled={book.format === "PHYSICAL" && book.stockCount === 0}
             >
               Add to basket
-            </Button>
+            </Button> */}
+             <Button
+    onClick={handleBuyNow}
+    disabled={book.format === "PHYSICAL" && book.stockCount === 0}
+  >
+    Buy Now
+  </Button>
           </div>
         </div>
       </div>

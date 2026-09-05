@@ -12,6 +12,7 @@ export interface CBTQuestion {
   optionB: string;
   optionC: string;
   optionD: string;
+  ImageUrl?: string | null;
 }
 
 export type CBTOption = "A" | "B" | "C" | "D";
