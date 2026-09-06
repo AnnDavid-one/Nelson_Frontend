@@ -22,6 +22,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-30 border-b border-ink-900/10 bg-paper-50/90 backdrop-blur">
       <div className="container-page flex h-16 items-center justify-between">
+        <img src="/oshomhoekah.jpg" alt="Nelbell Tutorial Centre" className="h-10" />
         <Link href="/" className="font-display text-lg tracking-tight">
           Home
         </Link>
@@ -41,7 +42,7 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-4">
-          {/* left for future scalling */}
+          {/* left for future scallingnm */}
           {/* <button
             onClick={() => setCartOpen(true)}
             className="relative text-sm font-medium text-ink-900"

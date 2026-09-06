@@ -10,10 +10,11 @@ const SOCIALS: { label: string; href: string | null }[] = [
   { label: "YouTube", href: null },
 ];
 
-const HARDCODE_URL: string | null = null; // e.g. your portfolio or GitHub link
+// const HARDCODE_URL = null; // e.g. your portfolio or GitHub link
 
 export function Footer() {
   const socials = SOCIALS.filter((s): s is { label: string; href: string } => !!s.href);
+  // const HARDCODE_URL = null; // e.g. your portfolio or GitHub link
 
   return (
     <footer className="mt-24 bg-ink-900 text-paper-100">
@@ -53,13 +54,19 @@ export function Footer() {
           </div>
         </div>
         <div className="brass-rule mt-10" />
+        <div className="footer-contact">
+  <img src="/oshomhoekah.jpg" alt="Oshomhoekha Creative Publishing" className="h-8 mb-2  rounded-full" />
+  <p>Oshomhoekha Creative Publishing Limited: <a href="tel:+2347063613995">+234 706 361 3995</a></p>
+  <p>Nelbell Tutorial Centre Online: <a href="tel:+2347089698484">+234 708 969 8484</a></p>
+  <p><a href="mailto:nelsonbello46@gmail.com">nelsonbello46@gmail.com</a></p>
+</div>
         <div className="mt-6 flex flex-wrap items-center justify-between gap-2 text-xs text-paper-200/60">
           <p>
             Printed &amp; published on the web by NELBELL &middot; &copy; {new Date().getFullYear()}{" "}
             Nelson O. Bello. All rights reserved.
           </p>
           <p>
-            Built by{" "}
+            {/* Built by{" "}
             {HARDCODE_URL ? (
               
                <a href={HARDCODE_URL}
@@ -71,7 +78,7 @@ export function Footer() {
               </a>
             ) : (
               <span className="text-paper-200/70">Hardcode</span>
-            )}
+            )} */}
           </p>
         </div>
       </div>

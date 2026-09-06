@@ -1,6 +1,7 @@
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { InquiryForm } from "@/components/forms/InquiryForm";
+import { CONTACT_EMAIL } from "@/lib/constant";
 
 export const metadata = { title: "Coaching & Consulting | NELBELL" };
 
@@ -52,7 +53,7 @@ export default function CoachingPage() {
         <div>
           <h2 className="font-display text-2xl">Start a conversation</h2>
           <div className="mt-6">
-            <InquiryForm type="COACHING_CONSULTING" submitLabel="Request coaching" />
+            <InquiryForm type="COACHING_CONSULTING" submitLabel="Request coaching" mailTo={CONTACT_EMAIL} />
           </div>
         </div>
       </div>

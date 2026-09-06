@@ -1,6 +1,9 @@
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { InquiryForm } from "@/components/forms/InquiryForm";
+import { CONTACT_EMAIL } from "@/lib/constant";
+
+
 
 export const metadata = { title: "Publishing Services | NELBELL" };
 
@@ -21,6 +24,7 @@ const SERVICES = [
 export default function PublishingServicesPage() {
   return (
     <div className="container-page py-16">
+      <img src="/oshomhoekah.jpg" alt="Oshomhoekha Creative Publishing" className="h-16" />
       <Eyebrow>Oshomhoekha Creative Publishing Limited</Eyebrow>
       <h1 className="max-w-2xl font-display text-4xl">
         Turning manuscripts into masterpieces.
@@ -44,15 +48,21 @@ export default function PublishingServicesPage() {
         ))}
       </div>
 
-      <div className="mt-16 max-w-xl">
-        <h2 className="font-display text-2xl">Start your publishing journey</h2>
-        <p className="mt-2 text-sm text-ink-700">
-          Share a little about your project and we&apos;ll be in touch to discuss next steps.
-        </p>
-        <div className="mt-6">
-          <InquiryForm type="PUBLISHING_SERVICES" submitLabel="Send publishing inquiry" />
+              <div className="mt-6 flex flex-wrap gap-4 flex-col">
+          
+          <a  href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Publishing Services Inquiry")}`}
+            className="inline-block border border-ink-900/15 px-6 py-3 text-sm font-medium transition hover:border-brass-500 w-96"
+          >
+            Email us at {CONTACT_EMAIL}
+          </a>
+          <p className="self-start ml-4">or call </p>
+          <a  href="tel:+2347063613995"
+            className="inline-block border border-ink-900/15 px-6 py-3 text-sm font-medium transition hover:border-brass-500 w-96"
+          >
+            Call +234 706 361 3995
+          </a>
         </div>
-      </div>
+      
     </div>
   );
 }

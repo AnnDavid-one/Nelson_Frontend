@@ -30,6 +30,8 @@ const WHY = [
 export default function TutorialCentrePage() {
   return (
     <div className="container-page py-16">
+            <img src="/nellbelltutorialcent.jpg" alt="NELBELL Tutorial Centre" className="h-16" />
+
       <Eyebrow>NELBELL Tutorial Centre Online</Eyebrow>
       <h1 className="max-w-2xl font-display text-4xl">
         Structured, exam-focused tutoring built by someone who has taught the syllabus for years.

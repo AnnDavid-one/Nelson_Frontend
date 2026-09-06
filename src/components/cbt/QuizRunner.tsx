@@ -1,13 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useCbtQuestions } from "@/hooks/useCbtQuestions";
 import { useSubmitCbtSession } from "@/hooks/useSubmitCbtSession";
 import { useCbtAccess } from "@/hooks/useCbtAccess";
 import type { CBTOption } from "@/types/cbtTypes";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
 
 const OPTION_KEYS: CBTOption[] = ["A", "B", "C", "D"];
 
@@ -20,9 +21,17 @@ export function QuizRunner({
   subjectName: string;
   attemptId: string;
 }) {
-  const { data: questions, isLoading } = useCbtQuestions(subjectId, attemptId);
+  const router = useRouter();
+  const { data: questions, isLoading, isError } = useCbtQuestions(subjectId, attemptId);
   const submit = useSubmitCbtSession();
-  const { updateAttemptsRemaining } = useCbtAccess();
+  const { updateAttemptsRemaining, clearAccess } = useCbtAccess();
+
+  useEffect(() => {
+    if (isError) {
+      clearAccess();
+      router.replace("/cbt");
+    }
+  }, [isError, clearAccess, router]);
 
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, CBTOption>>({});
@@ -55,10 +64,9 @@ export function QuizRunner({
   }
 
 
-    if (isLoading) {
+     if (isLoading || isError) {
     return <p className="py-16 text-center text-sm text-ink-700">Loading questions&hellip;</p>;
   }
-
 
 
   if (!questions || questions.length === 0) {
