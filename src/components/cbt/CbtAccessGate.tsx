@@ -95,7 +95,7 @@ export function CbtAccessGate() {
       ) : (
         <div className="mt-6 space-y-3 text-left">
           <p className="text-sm text-ink-700">
-            One payment unlocks {process.env.NEXT_PUBLIC_CBT_ATTEMPTS ?? "24"} practice attempts across every
+            One payment unlocks {process.env.NEXT_PUBLIC_CBT_ATTEMPTS ?? "16"} practice attempts across every
             subject.
           </p>
           <input
